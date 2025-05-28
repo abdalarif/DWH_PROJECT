@@ -10,11 +10,14 @@ services:
       MSSQL_PID: "Developer"
     volumes:
       - mssql_data:/var/opt/mssql
+      - ./datasets:/datasets
     networks:
       - mssql_net
+    working_dir: /datasets
 
 volumes:
   mssql_data:
+
 
 networks:
   mssql_net:
