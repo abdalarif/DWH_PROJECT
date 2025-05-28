@@ -1,2 +1,5 @@
 # ignore microsoft sql server volume data
 data/
+
+# draw.io files
+*.drawio
