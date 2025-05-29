@@ -1,6 +1,4 @@
--- ##################################
--- Checking 'silver.crm_cust_info'
--- ##################################
+
 -- Check for NULLs or Duplicates in Primary Key
 -- Expectation: No Results
 USE DataWarehouse;
@@ -24,9 +22,6 @@ SELECT DISTINCT
     cst_marital_status
 FROM silver.crm_cust_info;
 
--- ##################################
--- Checking 'silver.crm_prd_info'
--- ##################################
 -- Check for NULLs or Duplicates in Primary Key
 -- Expectation: No Results
 SELECT
@@ -62,9 +57,7 @@ SELECT
 FROM silver.crm_prd_info
 WHERE prd_end_dt < prd_start_dt;
 
--- ##################################
--- Checking 'silver.crm_sales_details'
--- ##################################
+
 -- Check for Invalid Dates
 -- Expectation: No Invalid Dates
 SELECT
@@ -99,9 +92,7 @@ WHERE sls_sales != sls_quantity * sls_price
     OR sls_price <= 0
 ORDER BY sls_sales, sls_quantity, sls_price;
 
--- ##################################
--- Checking 'silver.erp_cust_az12'
--- ##################################
+
 -- Identify Out-of-Range Dates
 -- Expectation: Birthdates between 1924-01-01 and Today
 SELECT DISTINCT
@@ -116,17 +107,12 @@ SELECT DISTINCT
 FROM silver.erp_cust_az12;
 
 -- ##################################
--- Checking 'silver.erp_loc_a101'
--- ##################################
 -- Data Standardization & Consistency
 SELECT DISTINCT
     cntry
 FROM silver.erp_loc_a101
 ORDER BY cntry;
 
--- ##################################
--- Checking 'silver.erp_px_cat_g1v2'
--- ##################################
 -- Check for Unwanted Spaces
 -- Expectation: No Results
 SELECT
